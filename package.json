@@ -1,0 +1,37 @@
+{
+  "name": "video-service",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --exec npm run babel-node --  ./bin/www",
+    "babel-node": "babel-node",
+    "build": "docker build -t video-service .",
+    "startd": "docker run -p 45459:8899 -d video-service",
+    "db:setup": "npx sequelize-cli db:migrate",
+    "setup-env": "npm run db:setup && npm run start"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "bull": "^3.12.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "http-errors": "~1.6.3",
+    "ioredis": "^4.14.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "sequelize": "^5.21.2",
+    "sequelize-cli": "^5.5.0",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
